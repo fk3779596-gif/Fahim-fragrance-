@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahim Perfumes · luxury essence</title>
+    <!-- Google Fonts for elegant typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free) for icons & cart -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0c10; /* deep black-blue base */
+            color: #e0e0e0;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* elegant container */
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* dark luxury palette */
+        :root {
+            --gold: #d4af37;
+            --soft-gold: #e6c373;
+            --deep-blue: #0a1929;
+            --rich-black: #0a0c0f;
+            --glass-glow: rgba(212, 175, 55, 0.2);
+            --card-bg: #11161e;
+            --reflection: rgba(255, 255, 255, 0.05);
+        }
+
+        /* typography */
+        h1, h2, h3, .logo, .nav-links a {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 500;
+        }
+
+        h2:after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin-top: 10px;
+        }
+
+        /* logo area */
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .perfume-icon {
+            font-size: 2.2rem;
+            color: var(--gold);
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+            transform: rotateY(10deg);
+            transition: 0.3s;
+        }
+
+        .logo-text {
+            font-size: 1.9rem;
+            font-weight: 600;
+            line-height: 1.1;
+        }
+
+        .logo-text .fahim {
+            color: #fff;
+            letter-spacing: 4px;
+        }
+
+        .logo-text .perfumes {
+            font-size: 1rem;
+            letter-spacing: 6px;
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            display: block;
+        }
+
+        /* navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            flex-wrap: wrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+            text-shadow: 0 0 6px var(--glass-glow);
+        }
+
+        .cart-icon {
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 40px;
+            padding: 8px 22px;
+            color: var(--gold);
+            font-size: 1.1rem;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .cart-icon i {
+            margin-right: 8px;
+        }
+
+        .cart-icon:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        /* HERO section with soft lighting */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 60px 0 80px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 4.5rem;
+            font-weight: 600;
+            line-height: 1.1;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .hero-text h1 span {
+            color: var(--gold);
+            display: block;
+            font-size: 3.8rem;
+            font-weight: 400;
+            letter-spacing: 6px;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            margin: 30px 0 40px;
+            color: #bbb;
+            max-width: 500px;
+            font-weight: 300;
+            border-left: 3px solid var(--gold);
+            padding-left: 20px;
+        }
+
+        .btn-gold {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 16px 48px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: 0.4s;
+            font-weight: 500;
+            border-radius: 0px;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold);
+            color: #0b0c10;
+            box-shadow: 0 0 30px var(--gold);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 3D rendered effect bottle (pure css illusion with shadows & reflections) */
+        .hero-bottle {
+            width: 320px;
+            height: 450px;
+            background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.15), rgba(0,0,0,0.7)), 
+                        linear-gradient(145deg, #102a43, #030613);
+            border-radius: 40% 40% 30% 30% / 60% 60% 30% 30%;
+            position: relative;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.8), 
+                        0 0 0 2px rgba(212, 175, 55, 0.2) inset,
+                        0 0 40px rgba(212, 175, 55, 0.3);
+            transform: rotate(-5deg);
+            backdrop-filter: blur(2px);
+        }
+
+        .hero-bottle::before {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 15%;
+            background: linear-gradient(135deg, #fff8e7, rgba(212, 175, 55, 0.4));
+            top: -5%;
+            left: 20%;
+            border-radius: 50% 50% 30% 30%;
+            box-shadow: 0 0 20px gold;
+            opacity: 0.8;
+        }
+
+        .hero-bottle::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 20%;
+            bottom: -8%;
+            background: radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.5), transparent 70%);
+            filter: blur(15px);
+            border-radius: 50%;
+        }
+
+        .reflection {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            width: 40%;
+            height: 30%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+            border-radius: 50%;
+            transform: rotate(25deg);
+            pointer-events: none;
+        }
+
+        /* featured products grid */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0 70px;
+        }
+
+        /* product card with glassmorphism & soft glow */
+        .product-card {
+            background: rgba(10, 20, 30, 0.7);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 30px 20px 25px;
+            text-align: center;
+            transition: 0.4s;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.8), 0 0 0 1px rgba(212, 175, 55, 0.1) inset;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            box-shadow: 0 30px 45px -10px black, 0 0 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .card-glow {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle at 70% 20%, rgba(212,175,55,0.15), transparent 60%);
+            opacity: 0;
+            transition: 0.5s;
+            pointer-events: none;
+        }
+
+        .product-card:hover .card-glow {
+            opacity: 1;
+        }
+
+        /* product visuals - 3d renders imitation */
+        .product-bottle {
+            width: 160px;
+            height: 240px;
+            margin: 0 auto 25px;
+            position: relative;
+            filter: drop-shadow(0 20px 15px #00000099);
+        }
+
+        /* fk perfume - black & gold */
+        .fk-bottle {
+            background: radial-gradient(circle at 30% 20%, #555, #0f0f0f);
+            border-radius: 40% 40% 30% 30% / 60% 60% 30% 30%;
+            box-shadow: 0 0 0 2px var(--gold) inset, 0 0 15px #d4af37;
+        }
+        .fk-bottle::before {
+            background: linear-gradient(135deg, #eedd99, #b48c34);
+            box-shadow: 0 0 20px gold;
+        }
+        .bluey-bottle {
+            background: radial-gradient(circle at 30% 20%, #4facd3, #0b2b44);
+            border-radius: 45% 45% 30% 30% / 60% 60% 30% 30%;
+            box-shadow: 0 0 0 2px #7fd4ff inset, 0 0 20px #3fa0d0;
+        }
+        .bluey-bottle::before {
+            background: linear-gradient(135deg, #c2e9ff, #4b98b3);
+            box-shadow: 0 0 20px #4fb4e0;
+        }
+        .janan-bottle {
+            background: radial-gradient(circle at 30% 20%, #be9f5f, #422b10);
+            border-radius: 35% 35% 30% 30% / 50% 50% 30% 30%;
+            box-shadow: 0 0 0 3px #f5d742 inset, 0 0 30px #f1c40f;
+        }
+        .janan-bottle::before {
+            background: linear-gradient(135deg, #ffd966, #ad7d37);
+            box-shadow: 0 0 30px #f3b33d;
+        }
+
+        .product-bottle::before {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 12%;
+            background: white;
+            top: -3%;
+            left: 20%;
+            border-radius: 50% 50% 30% 30%;
+            opacity: 0.9;
+        }
+
+        .product-bottle::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            width: 100%;
+            height: 15%;
+            background: radial-gradient(ellipse, rgba(0,0,0,0.7) , transparent 70%);
+            filter: blur(10px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        /* water splash effect for Bluey */
+        .splash {
+            position: absolute;
+            bottom: 20%;
+            right: 5%;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at 30% 30%, #a3ddff, transparent 70%);
+            border-radius: 70% 30% 60% 40% / 50% 60% 40% 50%;
+            filter: blur(4px);
+            opacity: 0.7;
+            animation: float 4s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-8px) scale(1.1); opacity: 0.9; }
+            100% { transform: translateY(0) scale(1); opacity: 0.5; }
+        }
+
+        .product-name {
+            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            margin: 15px 0 5px;
+            color: #fff;
+        }
+        .product-desc {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        .price {
+            font-size: 1.4rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        .add-to-cart {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 28px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: fit-content;
+            margin: 0 auto;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .add-to-cart i {
+            font-size: 1rem;
+        }
+        .add-to-cart:hover {
+            background: var(--gold);
+            color: #0b0c10;
+            box-shadow: 0 0 25px gold;
+        }
+
+        /* best sellers small grid */
+        .bestseller-grid {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 40px 0 60px;
+        }
+        .bestseller-item {
+            background: #10161e;
+            flex: 1 1 160px;
+            padding: 20px;
+            border: 1px solid #2a2f38;
+            text-align: center;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .bestseller-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+        }
+        .bestseller-item img-effect {
+            font-size: 3rem;
+            color: var(--gold);
+        }
+        .mini-bottle {
+            width: 70px;
+            height: 100px;
+            background: #282e36;
+            margin: 0 auto 15px;
+            border-radius: 30% 30% 20% 20% / 40% 40% 20% 20%;
+            box-shadow: 0 0 0 1px gold;
+        }
+
+        /* about brand */
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 80px 0;
+            background: linear-gradient(145deg, #0c121c, #04070c);
+            padding: 50px 40px;
+            border-radius: 4px;
+            border-left: 5px solid var(--gold);
+            box-shadow: 0 0 50px rgba(0,0,0,0.7);
+        }
+        .about-text p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            font-weight: 300;
+            color: #b9b9b9;
+        }
+        .signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        /* reviews */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0 80px;
+        }
+        .review-card {
+            background: #0f151f;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            border: 1px solid #2b2f36;
+        }
+        .review-card i {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        .review-card p {
+            font-style: italic;
+            color: #ccc;
+        }
+        .reviewer {
+            margin-top: 20px;
+            color: var(--soft-gold);
+        }
+
+        /* footer */
+        footer {
+            border-top: 1px solid rgba(212,175,55,0.2);
+            padding: 40px 0;
+            text-align: center;
+            color: #888;
+        }
+
+        /* responsiveness */
+        @media (max-width: 1024px) {
+            .hero, .featured-grid, .about-section, .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- header with logo & nav -->
+        <nav class="navbar">
+            <div class="logo-wrapper">
+                <i class="fas fa-glass-cheers perfume-icon"></i>
+                <div class="logo-text">
+                    <span class="fahim">FAHIM</span>
+                    <span class="perfumes">PERFUMES</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Perfumes</a>
+                <a href="#">Collections</a>
+                <a href="#">Journal</a>
+                <div class="cart-icon"><i class="fas fa-shopping-bag"></i> cart (0)</div>
+            </div>
+        </nav>
+
+        <!-- hero banner with high quality visual & soft lighting -->
+        <div class="hero">
+            <div class="hero-text">
+                <h1>L’ESSENCE <span>DU LUXE</span></h1>
+                <p class="hero-desc">Timeless elegance captured in every drop. Discover our new collection of long-lasting, handcrafted fragrances.</p>
+                <button class="btn-gold">Explore collection</button>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-bottle">
+                    <div class="reflection"></div>
+                </div>
+                <!-- soft glow lighting effect (background) -->
+                <div style="position:absolute; width:100%; height:100%; background: radial-gradient(circle at 70% 50%, rgba(212,175,55,0.15), transparent 60%); filter:blur(40px);"></div>
+            </div>
+        </div>
+
+        <!-- featured products heading -->
+        <h2>Signature Collection</h2>
+        <div class="featured-grid">
+            <!-- FK Perfume card -->
+            <div class="product-card">
+                <div class="card-glow"></div>
+                <div class="product-bottle fk-bottle">
+                    <div class="reflection"></div>
+                </div>
+                <div class="product-name">FK Perfume</div>
+                <div class="product-desc">bold · strong · black & gold</div>
+                <div class="price">$289</div>
+                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+            </div>
+            <!-- Bluey card (with splash effect) -->
+            <div class="product-card">
+                <div class="card-glow"></div>
+                <div class="product-bottle bluey-bottle">
+                    <div class="reflection"></div>
+                    <div class="splash"></div>
+                </div>
+                <div class="product-name">Bluey</div>
+                <div class="product-desc">fresh · cool · water splash</div>
+                <div class="price">$175</div>
+                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+            </div>
+            <!-- Janan Lux card -->
+            <div class="product-card">
+                <div class="card-glow"></div>
+                <div class="product-bottle janan-bottle">
+                    <div class="reflection"></div>
+                </div>
+                <div class="product-name">Janan Lux</div>
+                <div class="product-desc">arabic-style · golden ornate</div>
+                <div class="price">$450</div>
+                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+            </div>
+        </div>
+
+        <!-- Best Sellers section -->
+        <h2>Best Sellers</h2>
+        <div class="bestseller-grid">
+            <div class="bestseller-item">
+                <div class="mini-bottle" style="background: radial-gradient(#b48c34, #4d3f20); box-shadow:0 0 15px gold;"></div>
+                <h3>Oud Royale</h3>
+                <div class="price">$320</div>
+            </div>
+            <div class="bestseller-item">
+                <div class="mini-bottle" style="background: radial-gradient(#4f7a9c, #123456); box-shadow:0 0 15px #5aa9d9;"></div>
+                <h3>Mystic Blue</h3>
+                <div class="price">$195</div>
+            </div>
+            <div class="bestseller-item">
+                <div class="mini-bottle" style="background: radial-gradient(#b37b48, #4f2b10); box-shadow:0 0 15px #d4af37;"></div>
+                <h3>Amber Noir</h3>
+                <div class="price">$275</div>
+            </div>
+            <div class="bestseller-item">
+                <div class="mini-bottle" style="background: radial-gradient(#7f5e3a, #2d1d0f); box-shadow:0 0 15px #e6b422;"></div>
+                <h3>Noble Oud</h3>
+                <div class="price">$520</div>
+            </div>
+        </div>
+
+        <!-- About brand -->
+        <div class="about-section">
+            <div>
+                <h2 style="margin-bottom: 20px;">Maison Fahim</h2>
+                <div class="about-text">
+                    <p>Where tradition meets haute parfumerie. Each creation is an olfactive journey—rich, long-lasting, and crafted with rare ingredients. Our bottles are designed as artifacts of luxury, embracing both modern minimalism and Arabic opulence.</p>
+                    <p>We believe in perfumes that tell stories: bold, elegant, timeless.</p>
+                    <div class="signature">— Fahim</div>
+                </div>
+            </div>
+            <div style="background: radial-gradient(circle at 30% 50%, rgba(212,175,55,0.2), transparent 70%); display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-crown" style="font-size: 8rem; color: var(--gold); opacity: 0.5; filter: drop-shadow(0 0 30px gold);"></i>
+            </div>
+        </div>
+
+        <!-- Customer reviews -->
+        <h2>Élégance Voices</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <p>“FK Perfume is absolutely magnetic. Lasts all day and draws compliments. The black & gold bottle is a piece of art.”</p>
+                <div class="reviewer">— A. Al Mansour</div>
+            </div>
+            <div class="review-card">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <p>“Bluey is my new signature. Fresh as a mediterranean breeze, with a beautiful aquatic touch. Truly unique.”</p>
+                <div class="reviewer">— L. Moreau</div>
+            </div>
+            <div class="review-card">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <p>“Janan Lux is pure royalty. The golden ornate bottle sits on my dresser like a jewel. scent is deep, woody, opulent.”</p>
+                <div class="reviewer">— K. Al Zahrani</div>
+            </div>
+        </div>
+
+        <!-- subtle footer -->
+        <footer>
+            <p>© FAHIM PERFUMES — Haute Parfumerie since 1962</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; letter-spacing: 2px; color: #5a5a5a;"><i class="fas fa-gem" style="color: var(--gold);"></i>  luxury, long-lasting, iconic</p>
+        </footer>
+    </div>
+
+    <!-- smooth ui animation dummy (add to cart simulation) -->
+    <script>
+        (function() {
+            const cartButtons = document.querySelectorAll('.add-to-cart');
+            const cartDisplay = document.querySelector('.cart-icon');
+            let count = 0;
+            cartButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    count++;
+                    cartDisplay.innerHTML = `<i class="fas fa-shopping-bag"></i> cart (${count})`;
+                    btn.style.backgroundColor = '#d4af37';
+                    btn.style.color = '#0b0c10';
+                    setTimeout(() => {
+                        btn.style.backgroundColor = 'transparent';
+                        btn.style.color = '#d4af37';
+                    }, 200);
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
